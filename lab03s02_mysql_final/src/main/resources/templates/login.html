@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Moeda Estudantil</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="login-page">
+  <section class="login-hero">
+    <div class="login-logo">
+      <img src="/logo-sistema.svg" alt="Moeda Estudantil">
+      <div class="login-logo-title">
+        <strong>Moeda Estudantil</strong>
+        <span>SISTEMA</span>
+      </div>
+    </div>
+
+    <h1>Gestão moderna para o programa de moeda estudantil.</h1>
+    <p>Controle alunos e empresas parceiras em um ambiente elegante, seguro e fácil de usar.</p>
+
+    <div class="login-features">
+      <div class="login-feature"><b>CRUD Alunos</b><span>Cadastro, edição, exclusão e consulta de alunos.</span></div>
+      <div class="login-feature"><b>CRUD Empresas</b><span>Cadastro, edição, exclusão e consulta de empresas parceiras.</span></div>
+    </div>
+  </section>
+
+  <section class="login-card-wrap">
+    <div class="login-card">
+      <img src="/logo-sistema-dark.svg" alt="Moeda Estudantil">
+      <h2>Entrar no sistema</h2>
+      <p>Informe suas credenciais para acessar os módulos.</p>
+
+      <div th:if="${erro}" class="alert alert-error" th:text="${erro}"></div>
+      <div th:if="${mensagem}" class="alert alert-success" th:text="${mensagem}"></div>
+
+      <form th:action="@{/login}" method="post">
+        <div class="form-group">
+          <label>Usuário</label>
+          <input type="text" name="login" placeholder="Digite seu usuário" required>
+        </div>
+
+        <div class="form-group" style="margin-top:18px;">
+          <label>Senha</label>
+          <input type="password" name="senha" placeholder="Digite sua senha" required>
+        </div>
+
+        <div class="form-actions" style="border-top:none;padding-top:24px;">
+          <button type="submit" class="btn btn-primary" style="width:100%;">Acessar Sistema</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+</body>
+</html>

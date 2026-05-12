@@ -1,0 +1,19 @@
+
+<svg width="260" height="92" viewBox="0 0 260 92" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset=".45" stop-color="#14b8a6"/>
+      <stop offset=".75" stop-color="#f6d365"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="b" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <path d="M14 22 L40 10 L67 38 L94 10 L120 22 L120 70 L94 82 L94 42 L67 68 L40 42 L40 82 L14 70 Z" fill="url(#a)"/>
+  <path d="M40 10 L67 38 L94 10 L94 38 L67 65 L40 38 Z" fill="url(#b)" opacity=".95"/>
+  <text x="137" y="42" font-family="Inter, Arial" font-size="31" font-weight="900" fill="#082f3a">MOEDA</text>
+  <text x="139" y="68" font-family="Inter, Arial" font-size="15" font-weight="900" letter-spacing="6" fill="#ca8a04">ESTUDANTIL</text>
+</svg>
