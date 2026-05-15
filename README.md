@@ -107,7 +107,8 @@
 
 ---
 #### 2- Diagrama de Casos de Uso
-<img width="1536" height="1024" alt="diagrama de caso de uso" src="https://github.com/user-attachments/assets/8eeeac4d-70a9-48ef-be4a-3e6592c8289d" />
+
+<img width="1536" height="1024" alt="Diagrama_Caso_Uso_HU_Posicoes_Corrigidas" src="https://github.com/user-attachments/assets/d0a5dc7d-073b-4999-bdfb-19ef6006fcee" />
 
 ---
 #### 3- Diagrama de Classes
@@ -118,6 +119,8 @@
 
 <img width="1536" height="1024" alt="diagrama_de_componentes" src="https://github.com/user-attachments/assets/08e4d13a-c6b0-412d-b077-7f348e7ea494" />
 
+### 5-MER 
+<img width="1808" height="870" alt="MER versao_final" src="https://github.com/user-attachments/assets/5bcfddcb-49b8-4f59-b664-39eee1394089" />
 
 
 
