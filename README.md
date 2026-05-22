@@ -118,6 +118,49 @@
 
 <img width="1536" height="1024" alt="diagrama_de_componentes" src="https://github.com/user-attachments/assets/08e4d13a-c6b0-412d-b077-7f348e7ea494" />
 
+### 5 - Arquitetura 
+
+### O Sistema foi desenvolvido em arquitetura MVC em camadas. Houve a separação entre front end , regras de negócio e persistência.
+
+<img width="517" height="423" alt="image" src="https://github.com/user-attachments/assets/cb5eeb1f-93f6-4aa5-abc1-ca37bc830197" />
+
+### Justificativa da arquitetura : MVC melhora organização do código, JPA reduz complexidade de persistência, Hibernate automatiza ORM,Spring Boot acelera desenvolvimento
+
+### 6 Tecnologias Utilizadas
+### 6.1. Front end: HTML , CSS E JS 
+### 6.2. Backend : Spring Boot, Spring Data JPA, Hibernate, Java 17
+### 6.3. Banco de Dados: Mysql
+
+### 7. Visão Geral das Camadas
+
+###  Camada de Apresentação (Views/Thymeleaf): Arquivos HTML localizados em templates, responsável pela interação com professor e aluno
+###  Telas de login, cadastro, envio de moedas e vantagens.
+###  Camada Controller: Encaminha dados para Services, Controla fluxo entre frontend e backend,Exemplos: AuthController, AlunoController, ProfessorController.
+### Camada Service: Processamento de envio de moedas, Controle de saldo.
+### Camada Repository: Implementada com Spring Data JPA, Responsável pelo acesso ao banco de dados.
+### Camada de Persistência (MySQL) : Entidades representam tabelas do banco e Hibernate gerencia sincronização Java/MySQL. Banco MySQL configurado no application.properties
+### Uso de JDBC , spring.jpa.hibernate.ddl-auto=update.
+
+### 8. Modelos de Entidades
+###  Principais entidades:
+### Usuario
+### Aluno
+### Professor
+### TransacaoMoeda
+### Vantagem e Resgate
+### EmailSimulado
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
