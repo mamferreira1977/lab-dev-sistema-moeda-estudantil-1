@@ -150,6 +150,10 @@
 ### Vantagem e Resgate
 ### EmailSimulado
 
+### 9. Diagramas de Sequencias
+<img width="3600" height="2260" alt="Diagrama_UML_Sequencia" src="https://github.com/user-attachments/assets/d0de2a7b-64f6-4512-817a-ad4bfb05b29f" />
+
+
 
 
 
