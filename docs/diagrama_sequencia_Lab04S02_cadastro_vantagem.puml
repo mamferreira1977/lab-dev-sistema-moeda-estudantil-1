@@ -1,0 +1,16 @@
+@startuml
+actor EmpresaParceira
+boundary TelaCadastroVantagem
+control VantagemController
+entity EmpresaParceiraRepository
+entity VantagemRepository
+database BancoDados
+
+EmpresaParceira -> TelaCadastroVantagem: preenche título, descrição, custo e foto
+TelaCadastroVantagem -> VantagemController: POST /vantagens/salvar
+VantagemController -> VantagemController: validar campos obrigatórios
+VantagemController -> EmpresaParceiraRepository: buscar empresa parceira
+VantagemController -> VantagemRepository: salvar vantagem
+VantagemRepository -> BancoDados: INSERT/UPDATE vantagens
+VantagemController -> TelaCadastroVantagem: redireciona para listagem
+@enduml

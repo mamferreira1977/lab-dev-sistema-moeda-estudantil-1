@@ -1,0 +1,15 @@
+@startuml
+actor Aluno
+boundary TelaVantagens
+control VantagemController
+entity VantagemRepository
+database BancoDados
+
+Aluno -> TelaVantagens: acessa lista de vantagens
+TelaVantagens -> VantagemController: GET /vantagens
+VantagemController -> VantagemRepository: findAll()
+VantagemRepository -> BancoDados: SELECT vantagens
+BancoDados --> VantagemRepository: vantagens cadastradas
+VantagemRepository --> VantagemController: lista
+VantagemController --> TelaVantagens: renderiza vantagens/lista
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+actor Professor
+boundary TelaEnvioMoedas
+control MoedaController
+control MoedaService
+entity ProfessorRepository
+entity AlunoRepository
+entity TransacaoMoedaRepository
+queue RabbitMQ
+control EmailRabbitConsumer
+control EmailService
+database BancoDados
+
+Professor -> TelaEnvioMoedas: informa aluno, quantidade e motivo
+TelaEnvioMoedas -> MoedaController: POST /moedas/enviar
+MoedaController -> MoedaService: enviarMoedas(professorId, alunoId, quantidade, motivo)
+MoedaService -> ProfessorRepository: buscar professor
+MoedaService -> AlunoRepository: buscar aluno
+MoedaService -> MoedaService: validar saldo e motivo
+MoedaService -> ProfessorRepository: salvar saldo debitado
+MoedaService -> AlunoRepository: salvar saldo creditado
+MoedaService -> TransacaoMoedaRepository: salvar transação
+MoedaService -> RabbitMQ: publicar e-mail aluno
+MoedaService -> RabbitMQ: publicar e-mail professor
+RabbitMQ -> EmailRabbitConsumer: entregar mensagens
+EmailRabbitConsumer -> EmailService: enviar(destinatario, assunto, mensagem)
+EmailService -> BancoDados: registrar emails_simulados
+EmailService -> EmailService: enviar SMTP se configurado
+@enduml
