@@ -118,6 +118,7 @@
 
 <img width="1536" height="1024" alt="diagrama_de_componentes" src="https://github.com/user-attachments/assets/08e4d13a-c6b0-412d-b077-7f348e7ea494" />
 
+---
 ### 5 - Arquitetura 
 
 ### O Sistema foi desenvolvido em arquitetura MVC em camadas. Houve a separação entre front end , regras de negócio e persistência.
@@ -125,12 +126,12 @@
 <img width="517" height="423" alt="image" src="https://github.com/user-attachments/assets/cb5eeb1f-93f6-4aa5-abc1-ca37bc830197" />
 
 ### Justificativa da arquitetura : MVC melhora organização do código, JPA reduz complexidade de persistência, Hibernate automatiza ORM,Spring Boot acelera desenvolvimento
-
+---
 ### 6 Tecnologias Utilizadas
 ### 6.1. Front end: HTML , CSS E JS 
 ### 6.2. Backend : Spring Boot, Spring Data JPA, Hibernate, Java 17
 ### 6.3. Banco de Dados: Mysql
-
+---
 ### 7. Visão Geral das Camadas
 
 ###  Camada de Apresentação (Views/Thymeleaf): Arquivos HTML localizados em templates, responsável pela interação com professor e aluno
@@ -140,7 +141,7 @@
 ### Camada Repository: Implementada com Spring Data JPA, Responsável pelo acesso ao banco de dados.
 ### Camada de Persistência (MySQL) : Entidades representam tabelas do banco e Hibernate gerencia sincronização Java/MySQL. Banco MySQL configurado no application.properties
 ### Uso de JDBC , spring.jpa.hibernate.ddl-auto=update.
-
+---
 ### 8. Modelos de Entidades
 ###  Principais entidades:
 ### Usuario
@@ -149,19 +150,53 @@
 ### TransacaoMoeda
 ### Vantagem e Resgate
 ### EmailSimulado
-
-### 9. Diagramas de Sequencias
+---
+### 9. Diagramas de Sequencias Geral
 <img width="3600" height="2260" alt="Diagrama_UML_Sequencia" src="https://github.com/user-attachments/assets/d0de2a7b-64f6-4512-817a-ad4bfb05b29f" />
 
+---
+### 10. Diagrama de Sequências por caso de uso
 
+### 10.1 Autenticar usuário
 
+<img width="1800" height="900" alt="UC01_Autenticar_Login" src="https://github.com/user-attachments/assets/073d9aff-dc8a-4795-9a16-489a05e42a32" />
 
+### 10.2 Cadastrar no sistema
 
+<img width="1800" height="900" alt="UC04_Aluno_Cadastrar_Se" src="https://github.com/user-attachments/assets/eecc6d94-4b0b-45ee-a082-365cfbf77312" />
 
+### 10.3 Consultar Saldo de Moedas
 
+<img width="1800" height="900" alt="UC05_Aluno_Consultar_Saldo" src="https://github.com/user-attachments/assets/afc341cd-5e80-474c-912c-4251bd3ecd28" />
 
+### 10.4 Consultar Extrato de Transação
 
+<img width="1800" height="900" alt="UC06_Aluno_Consultar_Extrato" src="https://github.com/user-attachments/assets/b93b74b8-f558-48e7-af9c-e6a0b045154f" />
 
+### 10.5 Trocar moedas por vantagens
+
+<img width="1800" height="900" alt="UC07_Aluno_Trocar_Moedas_Por_Vantagens" src="https://github.com/user-attachments/assets/863c6053-6f59-4e5e-943e-1da2fd76d3fd" />
+
+### 10.6  Consultar Saldo de Moedas
+
+<img width="1800" height="900" alt="UC14_Professor_Consultar_Saldo" src="https://github.com/user-attachments/assets/17fa721a-aeec-41f1-b5e1-72be70d37504" />
+
+### 10.7 Consultar Extrato de Transação
+
+<img width="1800" height="900" alt="UC15_Professor_Consultar_Extrato" src="https://github.com/user-attachments/assets/77c713b3-3c2a-4c7b-978a-c875efb36992" />
+
+### 10.8 Enviar moedas para aluno
+
+<img width="1800" height="900" alt="UC16_Professor_Enviar_Moedas" src="https://github.com/user-attachments/assets/886ba59b-c124-448e-a987-f916e336317c" />
+
+### 10.9 Cadastrar no sistema
+<img width="1800" height="900" alt="UC21_Empresa_Cadastrar_Se" src="https://github.com/user-attachments/assets/07bc8f78-593e-4e55-8674-a7605d32bb4d" />
+
+### 10.10 Cadastrar / Gerenciar Vantagens
+<img width="1800" height="900" alt="UC22_Cadastrar_Gerenciar_Vantagens" src="https://github.com/user-attachments/assets/b7996cab-4c11-40eb-984d-30e904231da1" />
+
+### 10.11 Consultar Trocas de Cupons
+<img width="1800" height="900" alt="UC23_Consultar_Trocas_Cupons" src="https://github.com/user-attachments/assets/dc1b4a54-eef9-43bf-bf10-1c8a4bb7fafc" />
 
 
 
