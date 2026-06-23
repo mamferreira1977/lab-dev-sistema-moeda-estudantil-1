@@ -4,7 +4,7 @@ services:
     env: java
     plan: free
     buildCommand: ./mvnw clean package -DskipTests || mvn clean package -DskipTests
-    startCommand: java -jar target/moeda-estudantil-1.0.0.jar
+    startCommand: java -jar target/*.jar
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
