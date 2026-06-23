@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal | Moeda Estudantil</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="/logo-sistema.svg" alt="Moeda Estudantil">
+      <div><strong>MOEDA</strong><span>ESTUDANTIL</span></div>
+    </div>
+
+    <div class="menu-title">Principal</div>
+    <a class="nav-link active" href="/home">⌂ Dashboard</a>
+
+    <div class="menu-title">Cadastros</div>
+    <a class="nav-link" href="/alunos">👥 Alunos</a>
+    <a class="nav-link" href="/empresas">▦ Empresas Parceiras</a>
+    <a class="nav-link" href="/professores">👨‍🏫 Professores</a>
+
+    <div class="menu-title">Moedas</div>
+    <a class="nav-link" href="/moedas/enviar">◎ Enviar Moedas</a>
+    <a class="nav-link" href="/vantagens">★ Vantagens</a>
+    <a class="nav-link" href="/resgates">▣ Resgates</a>
+    <a class="nav-link" href="/emails-simulados">✉ E-mails Simulados</a>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="round-menu">☰</div>
+      <div class="user-area">
+        <div class="user-profile">
+          <span th:text="${session.usuarioLogado != null ? session.usuarioLogado.nomeExibicao : 'Administrador'}">Administrador</span>
+          <a href="/logout" class="btn btn-secondary btn-sair">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="page-header">
+        <div class="page-icon">⌂</div>
+        <div>
+          <h1>Página Principal</h1>
+          <div class="breadcrumb">Dashboard › <span>Página Principal</span></div>
+        </div>
+      </div>
+      
+<div class="card">
+  <div class="card-title">Página Principal</div>
+  <p class="subtitle">Bem-vindo ao sistema Moeda Estudantil. Acesse os cadastros principais abaixo.</p>
+
+  <div class="dashboard-grid">
+    <div class="dashboard-card teal">
+      <div>
+        <div class="dash-icon">👥</div>
+        <h3>CRUD Alunos</h3>
+        <p>Cadastre, consulte, edite e exclua alunos vinculados ao programa.</p>
+      </div>
+      <a href="/alunos" class="btn btn-primary">Acessar Alunos</a>
+    </div>
+
+    <div class="dashboard-card gold">
+      <div>
+        <div class="dash-icon">▦</div>
+        <h3>CRUD Empresas Parceiras</h3>
+        <p>Cadastre, consulte, edite e exclua empresas parceiras.</p>
+      </div>
+      <a href="/empresas" class="btn btn-primary">Acessar Empresas</a>
+    </div>
+
+    <div class="dashboard-card teal">
+      <div>
+        <div class="dash-icon">👨‍🏫</div>
+        <h3>Professores</h3>
+        <p>Cadastre professores, instituição, departamento e saldo de moedas.</p>
+      </div>
+      <a href="/professores" class="btn btn-primary">Acessar Professores</a>
+    </div>
+
+    <div class="dashboard-card gold">
+      <div>
+        <div class="dash-icon">◎</div>
+        <h3>Enviar Moedas</h3>
+        <p>Distribua moedas aos alunos com motivo obrigatório e e-mail simulado.</p>
+      </div>
+      <a href="/moedas/enviar" class="btn btn-primary">Enviar Moedas</a>
+    </div>
+
+    <div class="dashboard-card teal">
+      <div>
+        <div class="dash-icon">★</div>
+        <h3>Vantagens</h3>
+        <p>Cadastre vantagens com descrição, foto e custo em moedas.</p>
+      </div>
+      <a href="/vantagens" class="btn btn-primary">Acessar Vantagens</a>
+    </div>
+
+    <div class="dashboard-card gold">
+      <div>
+        <div class="dash-icon">▣</div>
+        <h3>Resgates</h3>
+        <p>Gere cupons de resgate e registre e-mails simulados.</p>
+      </div>
+      <a href="/resgates" class="btn btn-primary">Acessar Resgates</a>
+    </div>
+
+    <div class="dashboard-card teal">
+      <div>
+        <div class="dash-icon">✉</div>
+        <h3>E-mails Simulados</h3>
+        <p>Consulte notificações enviadas para alunos e empresas.</p>
+      </div>
+      <a href="/emails-simulados" class="btn btn-primary">Ver E-mails</a>
+    </div>
+  </div>
+</div>
+
+    </section>
+  </main>
+</div>
+</body>
+</html>

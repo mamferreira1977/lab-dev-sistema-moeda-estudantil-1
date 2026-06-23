@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Extrato do Aluno</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><img src="/logo-sistema.svg"><div><strong>MOEDA</strong><span>ESTUDANTIL</span></div></div>
+    <a class="nav-link" href="/home">⌂ Dashboard</a>
+    <a class="nav-link active" th:href="@{/moedas/extrato-aluno/{id}(id=${aluno.id})}">◎ Meu Extrato</a>
+    <a class="nav-link" href="/resgates">▣ Resgates</a>
+    <a class="nav-link" href="/logout">Sair</a>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="round-menu">☰</div>
+      <div class="user-area"><div class="user-profile"><span th:text="${session.usuarioLogado != null ? session.usuarioLogado.nomeExibicao : aluno.nome}">Aluno</span><a href="/logout" class="btn btn-secondary btn-sair">Sair</a></div></div>
+    </header>
+
+    <section class="content">
+      <div class="page-header">
+        <div class="page-icon">◎</div>
+        <div>
+          <h1>Extrato do Aluno</h1>
+          <div class="breadcrumb">Dashboard › Aluno › <span th:text="${aluno.nome}">Aluno</span></div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom:24px;">
+        <div class="dashboard-card gold" style="min-height:150px;">
+          <div>
+            <div class="dash-icon">🪙</div>
+            <h3>Saldo de moedas</h3>
+            <p style="font-size:36px;font-weight:900;margin:8px 0 0;color:#04293f;" th:text="${saldoCorreto != null ? saldoCorreto : (aluno.saldoMoedas != null ? aluno.saldoMoedas : 0)}">0</p>
+            <p>moedas disponíveis para resgate</p>
+          </div>
+        </div>
+
+        <div class="dashboard-card teal" style="min-height:150px;">
+          <div>
+            <div class="dash-icon">📥</div>
+            <h3>Recebimentos</h3>
+            <p style="font-size:32px;font-weight:900;margin:8px 0 0;color:#04293f;" th:text="${totalRecebido != null ? totalRecebido : 0}">0</p>
+            <p>moedas recebidas de professores</p>
+          </div>
+        </div>
+
+        <div class="dashboard-card teal" style="min-height:150px;">
+          <div>
+            <div class="dash-icon">🎁</div>
+            <h3>Trocas</h3>
+            <p style="font-size:32px;font-weight:900;margin:8px 0 0;color:#04293f;" th:text="${totalTrocado != null ? totalTrocado : 0}">0</p>
+            <p>moedas utilizadas em vantagens</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Histórico de movimentações</div>
+        <p class="subtitle">Aqui aparecem as moedas recebidas e as trocas realizadas pelo aluno.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Data</th><th>Tipo</th><th>Professor</th><th>Vantagem</th><th>Quantidade</th><th>Motivo</th></tr></thead>
+            <tbody>
+            <tr th:each="t : ${transacoes}">
+              <td th:text="${#temporals.format(t.dataHora, 'dd/MM/yyyy HH:mm')}">data</td>
+              <td th:text="${t.tipo}">tipo</td>
+              <td th:text="${t.professor != null ? t.professor.nome : '-'}">professor</td>
+              <td th:text="${t.vantagem != null ? t.vantagem.titulo : '-'}">vantagem</td>
+              <td th:text="${t.quantidade}">0</td>
+              <td th:text="${t.motivo}">motivo</td>
+            </tr>
+            <tr th:if="${transacoes == null || #lists.isEmpty(transacoes)}"><td colspan="6">Nenhuma transação registrada.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="footer-actions"><a href="/home" class="btn btn-secondary">Voltar</a></div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

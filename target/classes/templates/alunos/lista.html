@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alunos | Moeda Estudantil</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="/logo-sistema.svg" alt="Moeda Estudantil">
+      <div><strong>MOEDA</strong><span>ESTUDANTIL</span></div>
+    </div>
+
+    <div class="menu-title">Principal</div>
+    <a class="nav-link" href="/home">⌂ Dashboard</a>
+
+    <div class="menu-title">Cadastros</div>
+    <a class="nav-link active" href="/alunos">👥 Alunos</a>
+    <a class="nav-link" href="/empresas">▦ Empresas Parceiras</a>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="round-menu">☰</div>
+      <div class="user-area">
+        <div class="user-profile">
+          <span th:text="${session.usuarioLogado != null ? session.usuarioLogado.nomeExibicao : 'Administrador'}">Administrador</span>
+          <a href="/logout" class="btn btn-secondary btn-sair">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="page-header">
+        <div class="page-icon">👥</div>
+        <div>
+          <h1>Alunos</h1>
+          <div class="breadcrumb">Dashboard › <span>Alunos</span></div>
+        </div>
+      </div>
+      
+<div class="card">
+  <div class="table-card-header">
+    <div>
+      <div class="card-title">Alunos Cadastrados</div>
+      <p class="subtitle" style="margin-bottom:0;">Consulte, edite ou exclua alunos cadastrados.</p>
+    </div>
+    <div class="form-actions" style="border-top:none;margin-top:0;padding-top:0;">
+      <a href="/alunos/novo" class="btn btn-primary">+ Novo Aluno</a>
+    </div>
+  </div>
+
+  <div th:if="${erro}" class="alert alert-error" th:text="${erro}"></div>
+  <div th:if="${sucesso}" class="alert alert-success" th:text="${sucesso}"></div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Nome</th><th>E-mail</th><th>CPF</th><th>Instituição</th><th>Curso</th><th>Ações</th></tr></thead>
+      <tbody>
+        <tr th:each="aluno : ${alunos}">
+          <td th:text="${aluno.nome}">Nome do Aluno</td>
+          <td th:text="${aluno.email}">email@exemplo.com</td>
+          <td th:text="${aluno.cpf}">000.000.000-00</td>
+          <td th:text="${aluno.instituicaoEnsino}">Instituição</td>
+          <td th:text="${aluno.curso}">Curso</td>
+          <td><div class="actions">
+            <a th:href="@{/alunos/editar/{id}(id=${aluno.id})}" class="btn btn-success">Editar</a>
+            <a th:href="@{/alunos/excluir/{id}(id=${aluno.id})}" class="btn btn-danger" onclick="return confirm('Deseja excluir este aluno?')">Excluir</a>
+          </div></td>
+        </tr>
+        <tr th:if="${alunos == null || #lists.isEmpty(alunos)}"><td colspan="6">Nenhum aluno cadastrado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+    </section>
+  </main>
+</div>
+</body>
+</html>

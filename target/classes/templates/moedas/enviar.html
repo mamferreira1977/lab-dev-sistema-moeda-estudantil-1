@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Moedas</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="/logo-sistema.svg" alt="Moeda Estudantil">
+            <div>
+                <strong>MOEDA</strong>
+                <span>ESTUDANTIL</span>
+            </div>
+        </div>
+
+        <div class="menu-title">Principal</div>
+        <a class="nav-link" href="/home">⌂ Dashboard</a>
+
+        <div class="menu-title">Cadastros</div>
+        <a class="nav-link" href="/alunos">👥 Alunos</a>
+        <a class="nav-link" href="/empresas">▦ Empresas Parceiras</a>
+        <a class="nav-link" href="/professores">👨‍🏫 Professores</a>
+
+        <div class="menu-title">Moedas</div>
+        <a class="nav-link active" href="/moedas/enviar">◎ Enviar Moedas</a>
+        <a class="nav-link" href="/vantagens">★ Vantagens</a>
+        <a class="nav-link" href="/resgates">▣ Resgates</a>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div class="round-menu">☰</div>
+            <div class="user-area">
+                <div class="user-profile">
+                    <span th:text="${session.usuarioLogado != null ? session.usuarioLogado.nomeExibicao : 'Administrador'}">Administrador</span>
+                    <a href="/logout" class="btn btn-secondary btn-sair">Sair</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="page-header">
+                <div class="page-icon">◎</div>
+                <div>
+                    <h1>Enviar Moedas</h1>
+                    <div class="breadcrumb">Dashboard › <span>Enviar Moedas</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div th:if="${erro}" class="alert alert-error" th:text="${erro}"></div>
+                <div th:if="${sucesso}" class="alert alert-success" th:text="${sucesso}"></div>
+
+                <!-- Formulário corrigido: envia POST real para MoedaController.enviar() -->
+                <form id="formEnviarMoedas" th:action="@{/moedas/enviar}" action="/moedas/enviar" method="post">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="professorId">Professor</label>
+                            <select id="professorId" name="professorId" required>
+                                <option value="">Selecione</option>
+                                <option th:each="professor : ${professores}"
+                                        th:value="${professor.id}"
+                                        th:text="${professor.nome + ' - saldo: ' + professor.saldoMoedas}">
+                                    Professor
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alunoId">Aluno</label>
+                            <select id="alunoId" name="alunoId" required>
+                                <option value="">Selecione</option>
+                                <option th:each="aluno : ${alunos}"
+                                        th:value="${aluno.id}"
+                                        th:text="${aluno.nome + ' - saldo: ' + aluno.saldoMoedas}">
+                                    Aluno
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade de moedas</label>
+                            <input id="quantidade" type="number" name="quantidade" min="1" step="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="motivo">Motivo do reconhecimento</label>
+                            <textarea id="motivo" name="motivo" required
+                                      placeholder="Ex.: participação em aula, bom desempenho, colaboração..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary" type="submit">Enviar moedas</button>
+                        <a href="/home" class="btn btn-secondary">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

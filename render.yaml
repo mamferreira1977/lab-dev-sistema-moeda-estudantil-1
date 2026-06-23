@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: moeda-estudantil
+    env: java
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests || mvn clean package -DskipTests
+    startCommand: java -jar target/moeda-estudantil-1.0.0.jar
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: APP_EMAIL_ENVIO_REAL
+        value: true
+      - key: MAIL_HOST
+        value: auto
