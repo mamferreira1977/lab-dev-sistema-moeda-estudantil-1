@@ -13,22 +13,7 @@
 - [Funcionalidades Principais](#-funcionalidades-principais)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Arquitetura](#-arquitetura)
-  - [Exemplos de diagramas](#exemplos-de-diagramas)
-- [Instalação e Execução](#-instalação-e-execução)
-  - [Pré-requisitos](#pré-requisitos)
-  - [Variáveis de Ambiente](#-variáveis-de-ambiente)
-     - [1 Back-end (Spring Boot)](#1-back-end-spring-boot)
-     - [2 Front-end (React, Vite)](#2-front-end-react-vite)
-     - [3 Exemplos de Variáveis de Ambiente na Vercel](#3-exemplos-de-variáveis-de-ambiente-na-vercel)
-  - [Instalação de Dependências](#-instalação-de-dependências)
-    - [Front-end (React)](#front-end-react)
-    - [Back-end (Spring Boot)](#back-end-spring-boot)
-  - [Inicialização do Banco de Dados (PostgreSQL)](#-inicialização-do-banco-de-dados-postgresql)
-  - [Como Executar a Aplicação](#-como-executar-a-aplicação)
-    - [Terminal 1: Back-end (Spring Boot)](#terminal-1-back-end-spring-boot)
-    - [Terminal 2: Front-end (React, Vite)](#terminal-2-front-end-react-vite)
-    - [Execução Local Completa com Docker Compose (Incluindo Banco de Dados)](#-execução-local-completa-com-docker-compose-incluindo-banco-de-dados)
-    - [Passos para build, inicialização e execução](#-passos-para-build-inicialização-e-execução)
+- [Documentação](#-diagramas)
 - [Deploy](#-deploy)
 - [Estrutura de Pastas](#-estrutura-de-pastas)
 - [Demonstração](#-demonstração)
@@ -82,3 +67,148 @@ As seguintes ferramentas, frameworks e bibliotecas foram utilizados na construç
 * **Cloud:** [Ex: Vercel]
 
 ---
+## 🏗 Arquitetura
+# 🎓 Sistema de Moeda Estudantil
+
+Sistema web desenvolvido em Java/Spring Boot para gerenciamento de moedas estudantis, permitindo que professores reconheçam o desempenho de alunos por meio da distribuição de moedas virtuais, que posteriormente podem ser trocadas por vantagens oferecidas por empresas parceiras.
+
+---
+
+# Arquitetura da Solução
+
+A aplicação foi construída utilizando arquitetura em camadas (MVC), microsserviços de mensageria e serviços externos em nuvem.
+
+```
+                        Internet
+                            │
+                            │
+                     Render (Cloud)
+                  Spring Boot Application
+                            │
+        ┌───────────────────┼───────────────────┐
+        │                   │                   │
+        ▼                   ▼                   ▼
+ FreeSQLDatabase      CloudAMQP          Brevo SMTP
+     MySQL             RabbitMQ         Envio de e-mails
+```
+
+Todo o processamento da aplicação ocorre no Render.
+
+Os dados são persistidos em um banco MySQL remoto.
+
+O envio de mensagens é desacoplado através do RabbitMQ.
+
+As notificações são enviadas utilizando SMTP do Brevo.
+
+---
+
+# Arquitetura de Software
+
+O sistema utiliza arquitetura MVC composta pelas seguintes camadas:
+
+## Camada de Apresentação
+
+- HTML5
+- CSS3
+- JavaScript
+- Thymeleaf
+
+Responsável pela interação com o usuário.
+
+---
+
+## Camada de Controle
+
+Controllers Spring Boot responsáveis por:
+
+- Receber requisições HTTP
+- Validar dados
+- Encaminhar chamadas aos Services
+
+---
+
+## Camada de Negócio
+
+Implementada através dos Services.
+
+Responsável por:
+
+- Cadastro de usuários
+- Cadastro de alunos
+- Cadastro de professores
+- Cadastro de empresas
+- Distribuição de moedas
+- Resgate de vantagens
+- Publicação de mensagens RabbitMQ
+- Envio de e-mails
+
+---
+
+## Camada de Persistência
+
+Implementada utilizando:
+
+- Spring Data JPA
+- Hibernate
+
+Realiza toda a comunicação com o banco de dados MySQL.
+
+---
+
+
+## Banco de Dados
+
+MySQL 8
+
+Hospedado em:
+
+FreeSQLDatabase
+
+---
+
+## Mensageria
+
+RabbitMQ
+
+Hospedado em:
+
+CloudAMQP
+
+---
+
+## Serviço de E-mail
+
+Brevo SMTP
+
+Responsável pelo envio automático das notificações para:
+
+- Professor
+- Aluno
+
+---
+
+## Deploy
+
+Aplicação hospedada em:
+
+Render
+
+Deploy automatizado através do GitHub.
+
+A aplicação encontra-se publicada no Render.
+
+Durante o deploy foram utilizados serviços externos para:
+
+- Banco de dados MySQL
+- RabbitMQ
+- SMTP
+
+Todos configurados através de variáveis de ambiente
+
+
+
+
+
+
+
+
