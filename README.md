@@ -317,8 +317,12 @@ Critérios de aceite:
 
 ## Diagrama de Comunicação
 
+<img width="1536" height="1024" alt="Diagrama de Comunicacao" src="https://github.com/user-attachments/assets/7f8cfb5b-c324-4ef4-8e39-781c61d184b4" />
 
 # Diagrama de Implantação
+<img width="1536" height="1024" alt="DiagramadeImplantação" src="https://github.com/user-attachments/assets/39287325-da84-4626-813f-ad8a6efa8851" />
+
+
 
 
 
