@@ -189,7 +189,7 @@ Responsável pelo envio automático das notificações para:
 
 ## Deploy
 
-Aplicação hospedada em:
+Aplicação hospedada em:🌐 **Deploy:** https://lab-dev-sistema-moeda-estudantil.onrender.com/login
 
 Render
 
