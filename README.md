@@ -46,5 +46,39 @@
 
 ## 📝 Sobre o Projeto
  Sistema web desenvolvido em Java/Spring Boot para gerenciamento de moedas estudantis, permitindo que professores reconheçam o desempenho de alunos por meio da distribuição de moedas virtuais, que posteriormente podem ser trocadas por vantagens oferecidas por empresas parceiras.
+ 
+---
+
+## ✨ Funcionalidades Principais
+Liste as funcionalidades de forma clara e objetiva.
+
+- 🔐 **Autenticação Segura:** Login, Cadastro.  
+- ⚙️ **Gerenciamento de CRUD:** Criação, Leitura, Atualização e Deleção de recursos (e.g., Usuários, Itens, Posts).  
+- 📨 **Sistema de Notificações:** Envio de alertas por e-mail, push ou notificações internas.
+
+---
+## 🛠 Tecnologias Utilizadas
+
+As seguintes ferramentas, frameworks e bibliotecas foram utilizados na construção deste projeto. Recomenda-se o uso das versões listadas (ou superiores) para garantir a compatibilidade.
+
+### 💻 Front-end
+
+* **Framework/Biblioteca:** [Ex: Bootstrap]
+* **Linguagem/Superset:** [Ex: JavaScript ES6+]
+* **Estilização:** [Ex:CSS]
 
 
+### 🖥️ Back-end
+
+* **Linguagem/Runtime:** [Ex: Java 17 (JDK)]
+* **Framework:** [Ex: Spring Boot 3.x]
+* **Banco de Dados:** [Ex: MySQL]
+* **ORM / Query Builder:** [Ex: Hibernate/JPA]
+* **Autenticação:** [Ex: Spring Security]
+
+### ⚙️ Infraestrutura & DevOps
+
+* **Containerização:** [Ex: Docker]
+* **Cloud:** [Ex: Vercel]
+
+---
